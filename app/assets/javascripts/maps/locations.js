@@ -32,7 +32,7 @@ function initMap(locations) {
 
     var styles = new OpenLayers.StyleMap({
         "default": new OpenLayers.Style(OpenLayers.Util.applyDefaults({
-            externalGraphic: "/assets/maps/icons/blue-dot.png",
+            externalGraphic: '/assets/maps/img/blue-bus.png',
             backgroundGraphic: "/assets/maps/icons/balloon-shadow.png",
             graphicZIndex: MARKER_Z_INDEX,
             backgroundGraphicZIndex: SHADOW_Z_INDEX,
@@ -43,7 +43,7 @@ function initMap(locations) {
             graphicYOffset: -32
         }, OpenLayers.Feature.Vector.style["default"])),
         "select": new OpenLayers.Style({
-            externalGraphic: "/assets/maps/icons/red-dot.png"
+            externalGraphic: '/assets/maps/img/red-bus.png'
         })
     });
 
@@ -51,14 +51,16 @@ function initMap(locations) {
     map.addLayer(locationsLayer);
 
     for (var location in locationsJSON) {
+
         var locationPosition = new OpenLayers.LonLat(locationsJSON[location].longitude, locationsJSON[location].latitude).transform(fromProjection, toProjection);
         var datetimestamp=locationsJSON[location].timestamp
         //var dateconverted=new Date(datetimestamp).format('h:i:s')
         var dateconverted= timeConverter(datetimestamp)
         var locationMarker = new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point(locationPosition.lon, locationPosition.lat), {
-                title: locationsJSON[location].route_id,
-                description: dateconverted
+                title: locationsJSON[location].message ,
+                description:locationsJSON[location].answer + " <br/>" +dateconverted
+
                // description: locationsJSON[location].description
                // timeConverter(timestamp)
                 //new Date(timestamp).format('h:i:s')
@@ -66,6 +68,7 @@ function initMap(locations) {
         );
 
         locationsLayer.addFeatures(locationMarker);
+
     }
 
     selectControl = new OpenLayers.Control.SelectFeature(
