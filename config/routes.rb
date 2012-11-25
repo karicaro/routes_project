@@ -2,8 +2,16 @@ RoutesProject::Application.routes.draw do
 
   get "routes/upload"
   post "routes/upload"
+  post "routes/showAll"
 
   resources :routes do
+    collection do
+      get :destroy_all
+    end
+  end
+
+
+  resources :general_route do
     collection do
       get :destroy_all
     end
