@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bbe76d23-f12b-4f6c-abd7-ed95e912a823" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/routes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/routes_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/routes/show.html.haml" afterPath="$PROJECT_DIR$/app/views/routes/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
     </list>
     <ignored path="routes_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +29,7 @@
       <file leaf-file-name="routes_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/routes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="52" selection-start="6835" selection-end="6835" vertical-scroll-proportion="1.0883117">
+            <state line="124" column="25" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.6025974">
               <folding />
             </state>
           </provider>
@@ -1027,7 +1026,11 @@
       <created>1353914593425</created>
       <updated>1353914593425</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Calculate the route duration in hours: minutes: seconds">
+      <created>1353915992128</created>
+      <updated>1353915992128</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1110,7 +1113,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show coordinates although dont have NFC events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculate the route duration in hours: minutes: seconds" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1129,6 +1132,7 @@
     <MESSAGE value="Show multiples messages in the pop ups of the map" />
     <MESSAGE value="Bug in the passengers method fixed" />
     <MESSAGE value="Show coordinates although dont have NFC events" />
+    <MESSAGE value="Calculate the route duration in hours: minutes: seconds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1225,7 +1229,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/routes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="52" selection-start="6835" selection-end="6835" vertical-scroll-proportion="1.0883117">
+        <state line="124" column="25" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.6025974">
           <folding />
         </state>
       </provider>
