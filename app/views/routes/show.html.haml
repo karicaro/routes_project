@@ -17,6 +17,7 @@
  .map
   %div#map
   %input#gps{:type => "hidden", :value => @gps_array2.to_json}
+  %input#gps_all{:type => "hidden", :value => @gps_all.to_json}
 
 .container
  %div#container
@@ -26,6 +27,8 @@
  %input#bus_size{:type => "hidden", :value => @bus_size}
 
 %h2.title Route Name: #{@id.name}
+
+%p=@route_duration
 
 %p=@gps
 
@@ -38,7 +41,7 @@
 = javascript_include_tag '/assets/charts/charts'
 
 :javascript
-  initMap($("#gps").val());
+  initMap($("#gps").val(),$("#gps_all").val());
   drawVisualization($("#bus_size").val(),$("#container").val(),$("#array").val());
 
 

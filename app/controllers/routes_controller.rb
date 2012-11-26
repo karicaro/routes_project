@@ -35,7 +35,7 @@ class RoutesController < ApplicationController
     ##########################################################
     #Procesar los datos para en el archivo que se manda, se concatenen los elementos con la misma gps para que el mensaje y el answer muestren cosas concatenadas.
 
-    #Si es repetida la survey, no concatenar ni el mensaje, ni la respuesta. Ejm PARADA/PARADA
+    #TO DO: Si es repetida la NFC (message y timestamp) y el answer de la survey, no concatenar ni el mensaje, ni la respuesta. Ejm PARADA/PARADA
 
     count = 0
     @gps_array = []
@@ -80,13 +80,15 @@ class RoutesController < ApplicationController
     @gps_array2 << source_hash
 
     ##########################################################
+    ##### Se encuentran los datos de pasajeros por hora...
 
     @passengers = Passenger.find_all_by_route_id(@id)
     @array = []
     @array << @passengers.to_json
 
-    #Se busca la capacidad de pasajeros que puede llevar el camión
 
+    ################################################################
+    #Se busca la capacidad de pasajeros que puede llevar el camión
     @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => @id}}
     @bus_size = 0
 
@@ -105,6 +107,31 @@ class RoutesController < ApplicationController
 
       end
     end
+
+    #######################################################
+
+    #######################################################
+    #Crear un arreglo de coordenadas GPS para enviarselas al mapa a partir del INICIO y FIN de los NFC, aunque no tengan NFC
+
+    #Se buscan todos los NFC de ese sensado
+    @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => @id}}
+
+    @nfc_samples.each do |nfc|
+      if nfc["message"]=="INICIO"
+        @time_start = nfc.timestamp #Se obtiene el timestamp del inicio
+      end
+
+      if nfc["message"]=="FIN"
+        @time_end = nfc.timestamp #Se obtiene el timestamp del final
+      end
+    end
+
+    @route_duration = @time_end.to_i - @time_start.to_i
+
+    #Se buscan todas las coordenadas de ese sensado
+    @gps_all = GpsSample.find_all_by_route_id(@id)
+
+    #######################################################
   end
 
   def showAll
@@ -276,7 +303,7 @@ class RoutesController < ApplicationController
               #El primer Nfc Inicio se asigna al primer gps
               if nfc["timestamp"]==inicio
                 nfcRuta = NfcSample.new("message" => nfc["message"],
-                                        "timestamp" => nfc["timestamp"],
+                                        "timestamp" => gpsRuta[0].timestamp, #["timestamp"], #ponerle el tiempo de la gps???
                                         "gps_sample_id" => gpsRuta[0].id)
 
                 nfcRuta.save!
@@ -308,7 +335,7 @@ class RoutesController < ApplicationController
                   #si el NFC es igual a fin se asigna al último gps
                   if  nfc["timestamp"]==timeFinal[idx]
                     nfcRuta = NfcSample.new("message" => nfc["message"],
-                                            "timestamp" => nfc["timestamp"],
+                                            "timestamp" => nfc["timestamp"], #asignarle el tiempo de la gps
                                             "gps_sample_id" => gpsRuta[gpsRuta.length-1].id)
                     nfcRuta.save!
                   end
