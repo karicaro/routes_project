@@ -16,7 +16,7 @@
 
  .map
   %div#map
-  %input#gps{:type => "hidden", :value => @gps.to_json}
+  %input#gps{:type => "hidden", :value => @gps_array2.to_json}
 
 .container
  %div#container
@@ -27,7 +27,11 @@
 
 %h2.title Route Name: #{@id.name}
 
--#%p=@gps
+%p=@gps
+
+%p=@gps_array
+
+%p=@gps_array2
 
 = javascript_include_tag '/assets/maps/OpenLayers'
 = javascript_include_tag '/assets/maps/locations'
