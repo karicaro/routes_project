@@ -79,31 +79,6 @@ class RoutesController < ApplicationController
     source_hash = {"name" => @gps_array[@gps_array.length - 1]["name"], "latitude" => @gps_array[@gps_array.length - 1]["latitude"], "longitude" => @gps_array[@gps_array.length - 1]["longitude"], "timestamp" => @gps_array[@gps_array.length - 1]["timestamp"], "message" => @gps_array[@gps_array.length - 1]["message"], "answer" => @gps_array[@gps_array.length - 1]["answer"]}
     @gps_array2 << source_hash
 
-
-    #"name"=>"Sensed 3", "latitude"=>31.86179815886709, "longitude"=>-116.60965830370375, "timestamp"=>1342733954454, "message"=>"INICIO", "answer"=>"25"
-
-    #
-    ##creamos un hash con el timestamp de la nfc, con la cantidad de los pasajeros en ese momento y con el id de la ruta a la que pertenece
-    #source_hash = {timestamp: nfc.timestamp, count: @passengers_number, route_id: @route.id}
-    ##Generamos un archivo json a partir del hash
-    #json_string = JSON.generate source_hash
-    ##json_string = json_string.to_json
-    ##concatenamos del hash en una posición de un arreglo de hashes.
-    #@array_temp << json_string
-    #
-    #
-    ##source_hash = {s: 12, f: 43}
-    ##json_string = JSON.generate source_hash
-    ##back_to_hash = JSON.parse json_string
-
-    #  if dif.abs < min.abs #si la diferencia es menor al mínimo entonces hay un nuevo mínimo
-    #    min = dif
-    #    act = j
-    #  end
-    #  j=j+1 #incremento el apuntador
-    #  dif=gpsRuta[j].timestamp.to_i-86400000-nfc["timestamp"] #calculo la nueva diferencia
-
-
     ##########################################################
 
     @passengers = Passenger.find_all_by_route_id(@id)
@@ -486,13 +461,14 @@ class RoutesController < ApplicationController
           @survey3.each do |surv|
             if Passenger.find_all_by_timestamp(nfc.timestamp).length == 0 #Para cuando se repita la survey con el mismo nfc_id, solo escribir una
               if !surv.answer.nil?
-
-                @passengers_number = @passengers_number + surv.answer.to_i
-                @passengers = Passenger.new("timestamp" => nfc.timestamp,
-                                            "count" => @passengers_number,
-                                            "route_id" => id)
-                @passengers.save!
-
+                answer = surv.answer.to_i
+                if answer.is_a?(Numeric) && answer != 0
+                  @passengers_number = @passengers_number + surv.answer.to_i
+                  @passengers = Passenger.new("timestamp" => nfc.timestamp,
+                                              "count" => @passengers_number,
+                                              "route_id" => id)
+                  @passengers.save!
+                end
               end
             end
           end
@@ -508,13 +484,16 @@ class RoutesController < ApplicationController
           @survey3.each do |surv|
             if Passenger.find_all_by_timestamp(nfc.timestamp).length == 0 #Para cuando se repita la survey con el mismo nfc_id, solo escribir una
               if !surv.answer.nil?
+                answer = surv.answer.to_i
+                if answer.is_a?(Numeric) && answer != 0
+                  #preguntar si es string foo.is_a?(String) 1.is_a? Numeric var.is_a? String var.is_a? Numeric
 
-                @passengers_number = @passengers_number - surv.answer.to_i
-                @passengers = Passenger.new("timestamp" => nfc.timestamp,
-                                            "count" => @passengers_number,
-                                            "route_id" => id)
-                @passengers.save!
-
+                  @passengers_number = @passengers_number - surv.answer.to_i
+                  @passengers = Passenger.new("timestamp" => nfc.timestamp,
+                                              "count" => @passengers_number,
+                                              "route_id" => id)
+                  @passengers.save!
+                end
               end
             end
           end
