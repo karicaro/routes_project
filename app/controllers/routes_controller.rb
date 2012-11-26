@@ -111,7 +111,7 @@ class RoutesController < ApplicationController
     #######################################################
 
     #######################################################
-    #Crear un arreglo de coordenadas GPS para enviarselas al mapa a partir del INICIO y FIN de los NFC, aunque no tengan NFC
+    #Sacar la duración de la ruta en horas, minutos y segundos
 
     #Se buscan todos los NFC de ese sensado
     @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => @id}}
@@ -126,12 +126,39 @@ class RoutesController < ApplicationController
       end
     end
 
-    @route_duration = @time_end.to_i - @time_start.to_i
+    route_duration = @time_end.to_i - @time_start.to_i
 
+    duration_seconds = route_duration/1000
+
+    seconds = duration_seconds.to_i
+    @duration = format_time (seconds) #Duración de la ruta actual en horas, minutos, segundos
+
+    ################################################
+
+    #################################################
+    #Crear un arreglo de coordenadas GPS para enviarselas al mapa a partir del INICIO y FIN de los NFC, aunque no tengan NFC
     #Se buscan todas las coordenadas de ese sensado
     @gps_all = GpsSample.find_all_by_route_id(@id)
 
     #######################################################
+  end
+
+  def format_time (timeElapsed) #time in seconds
+
+    @timeElapsed = timeElapsed
+
+    #find the seconds
+    seconds = @timeElapsed % 60
+
+    #find the minutes
+    minutes = (@timeElapsed / 60) % 60
+
+    #find the hours
+    hours = (@timeElapsed/3600)
+
+    #format the time
+
+    return hours.to_s + ":" + format("%02d",minutes.to_s) + ":" + format("%02d",seconds.to_s)
   end
 
   def showAll
