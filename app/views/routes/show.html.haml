@@ -10,8 +10,9 @@
 
 %section#middle
 
- %p=@general_route.name
- %p=@id.name
+ %h2="Route Name: " + @general_route.name
+ %h3=@id.name
+ %h4= "Route Duration: " + @duration
  %p= link_to 'Back to route: '+@general_route.name, general_route_path(@general_route)
 
  .map
@@ -26,15 +27,13 @@
  %input#array{:type => "hidden", :value => @array}
  %input#bus_size{:type => "hidden", :value => @bus_size}
 
-%h2.title Route Name: #{@id.name}
-
-%p=@duration
-
-%p=@gps
-
-%p=@gps_array
-
-%p=@gps_array2
+-#%p=@duration
+-#
+-#%p=@gps
+-#
+-#%p=@gps_array
+-#
+-#%p=@gps_array2
 
 = javascript_include_tag '/assets/maps/OpenLayers'
 = javascript_include_tag '/assets/maps/locations'

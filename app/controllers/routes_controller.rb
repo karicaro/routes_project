@@ -122,7 +122,7 @@ class RoutesController < ApplicationController
       end
 
       if nfc["message"]=="FIN"
-        @time_end = nfc.timestamp #Se obtiene el timestamp del final
+        @time_end = nfc.timestamp #Se obtiene el ti  mestamp del final
       end
     end
 
@@ -158,28 +158,76 @@ class RoutesController < ApplicationController
 
     #format the time
 
-    return hours.to_s + ":" + format("%02d",minutes.to_s) + ":" + format("%02d",seconds.to_s)
+    return hours.to_s + ":" + format("%02d", minutes.to_s) + ":" + format("%02d", seconds.to_s)
   end
 
   def showAll
     db = SQLite3::Database.open "db/development.sqlite3"
     db.results_as_hash = true
 
-    @ids=params[:route]
-    @gps=Array.new
 
-    @ids.each do |id|
-      @gps.push (db.execute "SELECT routes.name, gps_samples.latitude, gps_samples.longitude, nfc_samples.timestamp,nfc_samples.message, surveys.answer
-                        FROM  nfc_samples INNER JOIN surveys
-                        ON nfc_samples.id = surveys.nfc_sample_id
-                        INNER JOIN gps_samples
-                        ON nfc_samples.gps_sample_id = gps_samples.id
-                        INNER JOIN routes
-                        ON gps_samples.route_id=routes.id
-                        WHERE routes.id='"+id+"'
-                        AND surveys.answer <>  '<null>'")
+    if !params[:route].nil?
+
+      @ids=params[:route]
+      route = Route.find(@ids[0])
+      @general_route = GeneralRoute.find(route.general_route_id)
+
+
+      @gps=Array.new
+      @color=Array.new
+      @x=Array.new
+      @duration=Array.new
+
+      @ids.each do |id|
+        #@gps.push (db.execute "SELECT routes.name, gps_samples.latitude, gps_samples.longitude, nfc_samples.timestamp,nfc_samples.message, surveys.answer
+        #                FROM  nfc_samples INNER JOIN surveys
+        #                ON nfc_samples.id = surveys.nfc_sample_id
+        #                INNER JOIN gps_samples
+        #                ON nfc_samples.gps_sample_id = gps_samples.id
+        #                INNER JOIN routes
+        #                ON gps_samples.route_id=routes.id
+        #                WHERE routes.id='"+id+"'
+        #                AND surveys.answer <>  '<null>'")
+
+        @gps.push (GpsSample.find_all_by_route_id(id))
+
+        @color.push("%06x" % (rand * 0xffffff))
+
+
+        @x.push(Passenger.where("route_id=?", id).group("route_id,count").order("count(count) DESC").first)
+
+
+        @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => id}}
+
+        @nfc_samples.each do |nfc|
+          if nfc["message"]=="INICIO"
+            @time_start = nfc.timestamp #Se obtiene el timestamp del inicio
+          end
+
+          if nfc["message"]=="FIN"
+            @time_end = nfc.timestamp #Se obtiene el ti  mestamp del final
+          end
+        end
+
+        route_duration = @time_end.to_i - @time_start.to_i
+
+        duration_seconds = route_duration/1000
+
+        seconds = duration_seconds.to_i
+        @duration.push(format_time (seconds)) #Duración de la ruta actual en horas, minutos, segundos
+
+
+
+
+      end
+
+      @c=@color.clone
+      @color = @color.to_s.gsub!("[", "")
+      @color = @color.to_s.gsub!("]", "")
+
+    else
+      redirect_to :back, notice: 'Select a route'
     end
-
 
   end
 
@@ -304,17 +352,17 @@ class RoutesController < ApplicationController
               # Se resta 86400000 lo equivalente a un día en milisegundos por que los archivos estan
               # desfasados por un dia
 
-              #if GpsSample.find_by_timestamp(gps["timestamp"]).nil?
-              if inicio[idx].to_i <= gps["timestamp"].to_i-86400000 && gps["timestamp"].to_i-86400000 <= timeFinal[idx].to_i
+              if GpsSample.find_by_timestamp(gps["timestamp"]).nil? #Descomentar o comentar
+                if inicio[idx].to_i <= gps["timestamp"].to_i-86400000 && gps["timestamp"].to_i-86400000 <= timeFinal[idx].to_i
 
-                gps = GpsSample.new("latitude" => gps["latitude"],
-                                    "longitude" => gps["longitude"],
-                                    "timestamp" => gps["timestamp"],
-                                    "route_id" => route.id)
-                gps.save!
+                  gps = GpsSample.new("latitude" => gps["latitude"],
+                                      "longitude" => gps["longitude"],
+                                      "timestamp" => gps["timestamp"],
+                                      "route_id" => route.id)
+                  gps.save!
 
+                end
               end
-              #end
             end
 
             #Falta realizar el match entre las NFCs y las coordenadas, así como asignarle a cada NFC su
@@ -330,7 +378,7 @@ class RoutesController < ApplicationController
               #El primer Nfc Inicio se asigna al primer gps
               if nfc["timestamp"]==inicio
                 nfcRuta = NfcSample.new("message" => nfc["message"],
-                                        "timestamp" => gpsRuta[0].timestamp, #["timestamp"], #ponerle el tiempo de la gps???
+                                        "timestamp" => nfc["timestamp"], #gpsRuta[0].timestamp, #["timestamp"], #ponerle el tiempo de la gps???
                                         "gps_sample_id" => gpsRuta[0].id)
 
                 nfcRuta.save!

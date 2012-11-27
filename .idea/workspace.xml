@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bbe76d23-f12b-4f6c-abd7-ed95e912a823" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/routes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/routes_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/routes/show.html.haml" afterPath="$PROJECT_DIR$/app/views/routes/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/routes/upload.html.haml" afterPath="$PROJECT_DIR$/app/views/routes/upload.html.haml" />
     </list>
     <ignored path="routes_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,58 +28,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routes_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/routes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="25" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.6025974">
+            <state line="513" column="21" selection-start="21877" selection-end="21877" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="..passengers" pinned="false" current="false" current-in-tab="false">
-        <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..passengers">
-          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/routes/show.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="-5.8076925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="locations.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/maps/locations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="29" selection-start="3843" selection-end="3843" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general_route_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/general_route_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="..nfc_samples" pinned="false" current="false" current-in-tab="false">
-        <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..nfc_samples">
-          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="..gps_samples" pinned="false" current="false" current-in-tab="false">
-        <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..gps_samples">
+      <file leaf-file-name="..general_routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..general_routes">
           <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
             <state />
           </provider>
@@ -90,17 +51,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="..general_routes" pinned="false" current="false" current-in-tab="false">
-        <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..general_routes">
-          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-            <state />
+      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/routes/show.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="-5.230769">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nfc_sample.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/nfc_sample.rb">
+      <file leaf-file-name="upload.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/routes/upload.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="59" selection-end="81" vertical-scroll-proportion="0.0">
+            <state line="12" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="-7.8461537">
+              <folding>
+                <marker date="1353976831000" expanded="true" signature="408:467" placeholder="do ... end" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showAll.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/routes/showAll.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="453" selection-end="453" vertical-scroll-proportion="-9.807693">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="charts.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts/charts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.6054795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/general_route/new.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="11" selection-start="19" selection-end="19" vertical-scroll-proportion="-0.65384614">
+              <folding>
+                <marker date="1353973883000" expanded="true" signature="106:322" placeholder="do ... end" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/general_route/show.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="132" selection-end="146" vertical-scroll-proportion="-1.9615384">
+              <folding>
+                <marker date="1353973940000" expanded="true" signature="197:695" placeholder="do ... end" />
+                <marker date="1353973940000" expanded="true" signature="360:656" placeholder="do ... end" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,22 +142,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/nfc_sample.rb" />
-        <option value="C:/Ruby193/lib/ruby/gems/1.9.1/gems/railties-3.2.8/guides/code/getting_started/app/models/post.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20121121013617_create_general_routes.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20121121013744_add_general_route_id_to_routes.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/models/general_route.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121124204158_create_passengers.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/models/route.rb" />
         <option value="$PROJECT_DIR$/app/models/passenger.rb" />
         <option value="$PROJECT_DIR$/app/views/routes/showGraphic.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/charts/charts.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/maps/locations.js" />
+        <option value="$PROJECT_DIR$/app/views/general_route/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/general_route/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/general_route/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/general_route/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/routes/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/routes/upload.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/routes/showAll.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/routes_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/charts/charts.js" />
       </list>
     </option>
   </component>
@@ -338,6 +353,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="general_route" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -368,6 +387,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,11 +633,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Database.TableEditor.Splitter" value="0.9" />
+    <property name="Database.TableEditor.Splitter" value="0.90000004" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="C:/EdQuCo-analysistool-59ccd42" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -1030,7 +1067,11 @@
       <created>1353915992128</created>
       <updated>1353915992128</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Stylesheet">
+      <created>1353916819457</created>
+      <updated>1353916819457</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1057,14 +1098,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.4939394" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15833333" sideWeight="0.72861844" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15984848" sideWeight="0.72861844" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19090909" sideWeight="0.21710527" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25454545" sideWeight="0.38980263" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25833333" sideWeight="0.61019737" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25454545" sideWeight="0.32730263" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25833333" sideWeight="0.1069079" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27631578" sideWeight="0.5007576" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2713816" sideWeight="0.4939394" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1073,6 +1113,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1113,7 +1154,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculate the route duration in hours: minutes: seconds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stylesheet" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1133,66 +1174,12 @@
     <MESSAGE value="Bug in the passengers method fixed" />
     <MESSAGE value="Show coordinates although dont have NFC events" />
     <MESSAGE value="Calculate the route duration in hours: minutes: seconds" />
+    <MESSAGE value="Stylesheet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/general_route.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/gps_sample.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/route.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/passenger.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..surveys">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts/charts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..passengers">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/general_route_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/nfc_sample.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="59" selection-end="81" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..gps_samples">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
@@ -1203,16 +1190,56 @@
         <state />
       </provider>
     </entry>
+    <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..surveys">
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/maps/locations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="29" selection-start="3843" selection-end="3843" vertical-scroll-proportion="0.0">
+        <state line="13" column="7" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..routes">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
+    <entry file="file://$PROJECT_DIR$/app/views/general_route/edit.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="39" selection-start="161" selection-end="161" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/general_route/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="51" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/general_route/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="11" selection-start="19" selection-end="19" vertical-scroll-proportion="-0.65384614">
+          <folding>
+            <marker date="1353973883000" expanded="true" signature="106:322" placeholder="do ... end" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/general_route/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="132" selection-end="146" vertical-scroll-proportion="-1.9615384">
+          <folding>
+            <marker date="1353973940000" expanded="true" signature="197:695" placeholder="do ... end" />
+            <marker date="1353973940000" expanded="true" signature="360:656" placeholder="do ... end" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..general_routes">
@@ -1220,16 +1247,44 @@
         <state />
       </provider>
     </entry>
+    <entry file="dbDummy://dbElement:/f3982d49/dd6e3bb7-8b13-4b77-adaf-94d6ba3e1eef/..routes">
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/routes/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="-5.8076925">
+        <state line="8" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="-5.230769">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/routes/upload.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="-7.8461537">
+          <folding>
+            <marker date="1353976831000" expanded="true" signature="408:467" placeholder="do ... end" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/routes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="25" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.6025974">
+        <state line="513" column="21" selection-start="21877" selection-end="21877" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/routes/showAll.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="453" selection-end="453" vertical-scroll-proportion="-9.807693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts/charts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="0" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.6054795">
           <folding />
         </state>
       </provider>
