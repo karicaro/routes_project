@@ -76,8 +76,10 @@ class RoutesController < ApplicationController
       end
     end
 
-    source_hash = {"name" => @gps_array[@gps_array.length - 1]["name"], "latitude" => @gps_array[@gps_array.length - 1]["latitude"], "longitude" => @gps_array[@gps_array.length - 1]["longitude"], "timestamp" => @gps_array[@gps_array.length - 1]["timestamp"], "message" => @gps_array[@gps_array.length - 1]["message"], "answer" => @gps_array[@gps_array.length - 1]["answer"]}
-    @gps_array2 << source_hash
+    if count == @gps_array.length - 1 #Se le agregó esto de última hora 27 nov 2012
+      source_hash = {"name" => @gps_array[@gps_array.length - 1]["name"], "latitude" => @gps_array[@gps_array.length - 1]["latitude"], "longitude" => @gps_array[@gps_array.length - 1]["longitude"], "timestamp" => @gps_array[@gps_array.length - 1]["timestamp"], "message" => @gps_array[@gps_array.length - 1]["message"], "answer" => @gps_array[@gps_array.length - 1]["answer"]}
+      @gps_array2 << source_hash #se le agregó esto de última hora. 27 nov 2012
+    end
 
     ##########################################################
     ##### Se encuentran los datos de pasajeros por hora...
@@ -215,8 +217,6 @@ class RoutesController < ApplicationController
 
         seconds = duration_seconds.to_i
         @duration.push(format_time (seconds)) #Duración de la ruta actual en horas, minutos, segundos
-
-
 
 
       end
