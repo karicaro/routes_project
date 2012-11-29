@@ -130,9 +130,6 @@ function initMap(locations, gps_all) {
     lineLayer.addFeatures([lineFeature]);
 }
 
-
-
-
 function timeConverter(timestamp){
     var a = new Date(timestamp);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -170,7 +167,6 @@ function addMarker(layer, markerPosition, popupClass, popupContentHTML, closeBox
 
     layer.addFeatures(marker);
 }
-
 
 function onPopupClose(evt) {
     // 'this' is the popup.

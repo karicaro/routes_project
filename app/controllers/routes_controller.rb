@@ -181,23 +181,11 @@ class RoutesController < ApplicationController
       @duration=Array.new
 
       @ids.each do |id|
-        #@gps.push (db.execute "SELECT routes.name, gps_samples.latitude, gps_samples.longitude, nfc_samples.timestamp,nfc_samples.message, surveys.answer
-        #                FROM  nfc_samples INNER JOIN surveys
-        #                ON nfc_samples.id = surveys.nfc_sample_id
-        #                INNER JOIN gps_samples
-        #                ON nfc_samples.gps_sample_id = gps_samples.id
-        #                INNER JOIN routes
-        #                ON gps_samples.route_id=routes.id
-        #                WHERE routes.id='"+id+"'
-        #                AND surveys.answer <>  '<null>'")
-
         @gps.push (GpsSample.find_all_by_route_id(id))
 
         @color.push("%06x" % (rand * 0xffffff))
 
-
         @x.push(Passenger.where("route_id=?", id).group("route_id,count").order("count(count) DESC").first)
-
 
         @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => id}}
 
@@ -217,8 +205,6 @@ class RoutesController < ApplicationController
 
         seconds = duration_seconds.to_i
         @duration.push(format_time (seconds)) #Duración de la ruta actual en horas, minutos, segundos
-
-
       end
 
       @c=@color.clone
@@ -232,10 +218,10 @@ class RoutesController < ApplicationController
   end
 
   def destroy
-    # find only the location that has the id defined in params[:id]
+    # find only the route that has the id defined in params[:id]
     @route = Route.find(params[:id])
 
-    # delete the location object and any child objects associated with it
+    # delete the route object and any child objects associated with it
     @route.destroy
 
     # redirect the user to index
@@ -471,7 +457,7 @@ class RoutesController < ApplicationController
         end
 
         ######################################################
-        #Si un NFC de INICIO no tiene surveys, crearlas... Tiene un problema: si dos NFC coinciden en la coordenada, se muestra en el globito solo el mensaje de la útima NFC de esa coordenada.
+        #Si un NFC de INICIO no tiene surveys, crearlas...
 
         routes = Route.find_all_by_general_route_id(@general_route.id)
         routes.each do |r|
@@ -521,7 +507,7 @@ class RoutesController < ApplicationController
     end
   end
 
-  def passengers (id)
+  def passengers (id) #Método que guarda el número de pasajeros en un determinado tiempo de una muestra de sensado
 
     @nfc_samples = NfcSample.all :joins => {:gps_sample => :route}, :conditions => {:gps_samples => {:route_id => id}}
     @survey = Survey.all :joins => {:nfc_sample => {:gps_sample => :route}}, :conditions => {:gps_samples => {:route_id => id}}
@@ -588,8 +574,6 @@ class RoutesController < ApplicationController
               if !surv.answer.nil?
                 answer = surv.answer.to_i
                 if answer.is_a?(Numeric) && answer != 0
-                  #preguntar si es string foo.is_a?(String) 1.is_a? Numeric var.is_a? String var.is_a? Numeric
-
                   @passengers_number = @passengers_number - surv.answer.to_i
                   @passengers = Passenger.new("timestamp" => nfc.timestamp,
                                               "count" => @passengers_number,
